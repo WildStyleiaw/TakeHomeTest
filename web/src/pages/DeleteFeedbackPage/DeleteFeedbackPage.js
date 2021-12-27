@@ -1,24 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import CoreLayout from 'src/layouts/CoreLayout/CoreLayout'
+import DeleteFeedbackCell from 'src/components/DeleteFeedbackCell'
 
-const DeleteFeedbackPage = () => {
+const DeleteFeedbackPage = ({ id }) => {
   return (
-    <>
-      <CoreLayout>
-        <MetaTags title="DeleteFeedback" description="DeleteFeedback page" />
-
-        <h1>DeleteFeedbackPage</h1>
-        <p>
-          Find me in{' '}
-          <code>./web/src/pages/DeleteFeedbackPage/DeleteFeedbackPage.js</code>
-        </p>
-        <p>
-          My default route is named <code>deleteFeedback</code>, link to me with
-          `<Link to={routes.deleteFeedback()}>DeleteFeedback</Link>`
-        </p>
-      </CoreLayout>
-    </>
+    <CoreLayout>
+      <DeleteFeedbackCell id={id} />
+    </CoreLayout>
   )
 }
 

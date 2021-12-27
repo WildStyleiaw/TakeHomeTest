@@ -4,6 +4,7 @@ import { Router, Route } from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/contacts" page={ContactsPage} name="contacts" />
       <Route path="/feedback/{id}" page={SingleFeedbackPage} name="singleFeedback" />
       <Route path="/feedback/{id}/delete" page={DeleteFeedbackPage} name="deleteFeedback" />
       <Route path="/feedback/{id}/edit" page={EditFeedbackPage} name="editFeedback" />

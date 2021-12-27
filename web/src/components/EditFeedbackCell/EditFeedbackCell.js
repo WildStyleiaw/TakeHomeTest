@@ -42,7 +42,6 @@ export const Success = ({ feedback }) => {
       },
     }
   )
-
   const onSave = (input, id) => {
     updateFeedback({ variables: { id, input } })
   }
@@ -51,10 +50,11 @@ export const Success = ({ feedback }) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <div className="px-2 py-2">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
-            Edit Feedback ID: {feedback.id}
+          <h3 className="text-xl leading-6 font-medium text-gray-900">
+            Edit Feedback
           </h3>
         </div>
+        <div className="px-2 py-5">Feedback ID: {feedback.id}</div>
       </header>
       <div className="rw-segment-main">
         <FeedbackForm

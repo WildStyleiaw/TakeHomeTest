@@ -11,21 +11,6 @@ export const QUERY = gql`
     }
   }
 `
-const DELETE_FEEDBACK_MUTATION = gql`
-  mutation DeleteFeedbackMutation($id: String!) {
-    deleteFeedback(id: $id) {
-      id
-    }
-  }
-`
-
-const jsonDisplay = (obj) => {
-  return (
-    <pre>
-      <code>{JSON.stringify(obj, null, 2)}</code>
-    </pre>
-  )
-}
 
 const timeTag = (datetime) => {
   return (
@@ -35,27 +20,7 @@ const timeTag = (datetime) => {
   )
 }
 
-const checkboxInputTag = (checked) => {
-  return <input type="checkbox" checked={checked} disabled />
-}
-
 const Feedback = ({ feedback }) => {
-  const [deleteFeedback] = useMutation(DELETE_FEEDBACK_MUTATION, {
-    onCompleted: () => {
-      toast.success('Feedback deleted')
-      navigate(routes.feedbacks())
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-  })
-
-  const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete feedback ' + id + '?')) {
-      deleteFeedback({ variables: { id } })
-    }
-  }
-
   return (
     <>
       <div className="space-y-3">
@@ -86,7 +51,7 @@ const Feedback = ({ feedback }) => {
                           </div>
                           <p className="text-xl text-gray-500">
                             <div className="">
-                              Create At: {timeTag(feedback.createdAt)}
+                              Created At: {timeTag(feedback.createdAt)}
                             </div>
                           </p>
                         </div>
@@ -103,17 +68,22 @@ const Feedback = ({ feedback }) => {
                 <div className="flex justify-end"></div>
                 <button
                   type="button"
+                  className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-300 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  <Link to={routes.feedback()}>Back</Link>
+                </button>
+                <button
+                  type="button"
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   <Link to={routes.editFeedback({ id: feedback.id })}>
                     Edit
                   </Link>
                 </button>
-                <button
-                  className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  onClick={() => onDeleteClick(feedback.id)}
-                >
-                  Delete
+                <button className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <Link to={routes.deleteFeedback({ id: feedback.id })}>
+                    Delete
+                  </Link>
                 </button>
               </div>
             </nav>

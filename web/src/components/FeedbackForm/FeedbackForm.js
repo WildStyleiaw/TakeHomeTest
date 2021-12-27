@@ -14,17 +14,17 @@ const FeedbackForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-        <div>
+        <div className="px-1">
           <label
             htmlFor="user"
-            className="block text-sm font-medium text-gray-700 py-5"
+            className="block text-sm font-medium text-gray-700 py-5 px-2"
           >
             Change User:
           </label>
           <select
             id="user"
             name="user"
-            className="mt-1 block w-1/3 pl-3 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
+            className="mt-1 block w-1/3 px-10 pl-3 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
           >
             <option>User1</option>
             <option selected>User2</option>

@@ -57,7 +57,7 @@ const FeedbackItem = ({ fb }) => {
         <div className=""> {fb.text}</div>
       </div>
       <div className="px-3 py-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.singleFeedback({ id: fb.id })}>View Details</Link>
         </button>
       </div>
@@ -74,7 +74,7 @@ export const Empty = () => {
     <>
       <div className="px-10 py-10">
         <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-          <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+          <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
             <Link to={routes.newFeedback()}>Add insight</Link>
           </button>
         </span>
@@ -100,7 +100,7 @@ const Success = ({ feedbacks }) => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.newFeedback()}>Add insight</Link>
         </button>
       </span>
@@ -123,7 +123,7 @@ export const Loading = () => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.newFeedback()}>Add insight</Link>
         </button>
       </span>
