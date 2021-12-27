@@ -12,15 +12,55 @@ export const QUERY = gql`
     }
   }
 `
+const timeTag = (datetime) => {
+  return (
+    <time dateTime={datetime} title={datetime}>
+      {new Date(datetime).toUTCString()}
+    </time>
+  )
+}
+
 const FeedbackItem = ({ fb }) => {
   return (
     <div className="space-y-3">
-      <div className="">ID: {fb.id}</div>
-      <div className="">Create At: {fb.createdAt}</div>
-      <div className="">Text: {fb.text}</div>
-      <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
-        <Link to={routes.singleFeedback()}>View Details</Link>
-      </button>
+      <div>
+        <ul className="divide-y divide-gray-200">
+          <li className="py-4">
+            <div className="flex space-x-3">
+              <div className="px-1 py-1">
+                <img
+                  className="h-9 w-9 rounded-full"
+                  src="https://d33wubrfki0l68.cloudfront.net/492ed629970792d32ac857da0166a7d2308bad99/428b6/images/diecut.svg"
+                  alt="Redwood Logo"
+                />
+              </div>
+              <div className="flex-1 space-y-1">
+                <h3 className="text-sm font-medium">
+                  {' '}
+                  <div className="">User: {fb.userId}</div>
+                </h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-medium">
+                    {' '}
+                    <div className="">ID: {fb.id}</div>
+                  </h3>
+                </div>
+                <p className="text-sm text-gray-500">
+                  <div className="">Create At: {timeTag(fb.createdAt)}</div>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div className="px-3 py-1">
+        <div className=""> {fb.text}</div>
+      </div>
+      <div className="px-3 py-3">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+          <Link to={routes.singleFeedback({ id: fb.id })}>View Details</Link>
+        </button>
+      </div>
     </div>
   )
 }
@@ -32,11 +72,13 @@ export const Layout = ({ children }) => {
 export const Empty = () => {
   const headerBtns = (
     <>
-      <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
-          <Link to={routes.newFeedback()}>Add insight</Link>
-        </button>
-      </span>
+      <div className="px-10 py-10">
+        <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
+          <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+            <Link to={routes.newFeedback()}>Add insight</Link>
+          </button>
+        </span>
+      </div>
     </>
   )
   return (
@@ -58,7 +100,7 @@ const Success = ({ feedbacks }) => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.newFeedback()}>Add insight</Link>
         </button>
       </span>
@@ -81,7 +123,7 @@ export const Loading = () => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-purple-600 border border-transparent rounded-md hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.newFeedback()}>Add insight</Link>
         </button>
       </span>

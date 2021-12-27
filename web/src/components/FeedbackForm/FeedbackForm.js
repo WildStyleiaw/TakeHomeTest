@@ -1,17 +1,4 @@
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  Submit,
-} from '@redwoodjs/forms'
-
-const formatDatetime = (value) => {
-  if (value) {
-    return value.replace(/:\d{2}\.\d{3}\w/, '')
-  }
-}
+import { Form, FormError, FieldError, Submit } from '@redwoodjs/forms'
 
 const FeedbackForm = (props) => {
   const onSubmit = (data) => {
@@ -27,21 +14,38 @@ const FeedbackForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-
-        <Label
-          name="text"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Please Enter Your Feedback Here:
-        </Label>
-        <TextField
-          name="text"
-          defaultValue={props.feedback?.text}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+        <div>
+          <label
+            htmlFor="user"
+            className="block text-sm font-medium text-gray-700 py-5"
+          >
+            Change User:
+          </label>
+          <select
+            id="user"
+            name="user"
+            className="mt-1 block w-1/3 pl-3 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
+          >
+            <option>User1</option>
+            <option selected>User2</option>
+            <option>User3</option>
+          </select>
+        </div>
+        <div className="px-1 py-3">
+          <p className="mt-2 text-sm text-gray-500">
+            Please provide feedback on ways we can improve.
+          </p>
+          <div className="py-3">
+            <textarea
+              id="editFeedbackArea"
+              name="editFeedbackArea"
+              rows="3"
+              className="max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+              defaultValue={props.feedback?.text}
+              validation={{ required: true }}
+            />
+          </div>
+        </div>
 
         <FieldError name="text" className="rw-field-error" />
 

@@ -35,7 +35,7 @@ export const Success = ({ feedback }) => {
     {
       onCompleted: () => {
         toast.success('Feedback updated')
-        navigate(routes.feedbacks())
+        navigate(routes.feedback())
       },
       onError: (error) => {
         toast.error(error.message)
@@ -50,9 +50,11 @@ export const Success = ({ feedback }) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">
-          Edit Feedback {feedback.id}
-        </h2>
+        <div className="px-2 py-2">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Edit Feedback ID: {feedback.id}
+          </h3>
+        </div>
       </header>
       <div className="rw-segment-main">
         <FeedbackForm
