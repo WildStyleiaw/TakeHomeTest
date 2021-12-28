@@ -110,7 +110,7 @@ const Success = ({ feedbacks }) => {
     <ContainerLayout maxWidth="max-w-full" headerBtns={headerBtns}>
       <div className="grid">
         <div className="divide-y">
-          {feedbacks.map((fb) => (
+          {feedbacks?.map((fb) => (
             <FeedbackItem key={fb.id} fb={fb} />
           ))}
         </div>

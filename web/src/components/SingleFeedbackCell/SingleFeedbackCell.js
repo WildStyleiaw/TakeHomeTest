@@ -1,6 +1,4 @@
-import { useMutation } from '@redwoodjs/web'
-import { toast } from '@redwoodjs/web/toast'
-import { Link, routes, navigate } from '@redwoodjs/router'
+import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query FindFeedbackById($id: String!) {

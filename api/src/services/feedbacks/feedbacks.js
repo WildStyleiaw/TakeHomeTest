@@ -12,7 +12,10 @@ export const feedback = ({ id }) => {
 
 export const createFeedback = ({ input }) => {
   return db.feedback.create({
-    data: input,
+    data: {
+      text: input.text,
+      userId: input.id,
+    },
   })
 }
 
@@ -27,4 +30,8 @@ export const deleteFeedback = ({ id }) => {
   return db.feedback.delete({
     where: { id },
   })
+}
+export const userList = () => {
+  console.log('fired!')
+  return db.user.findMany()
 }

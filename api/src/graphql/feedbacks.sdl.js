@@ -12,9 +12,15 @@ export const schema = gql`
     contact: User
   }
 
+  type User {
+    id: String!
+    email: String
+    name: String
+  }
   type Query {
     feedbacks: [Feedback!]! @requireAuth
     feedback(id: String!): Feedback @requireAuth
+    userList: [User!]! @requireAuth
   }
 
   input CreateFeedbackInput {

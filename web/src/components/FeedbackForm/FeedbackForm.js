@@ -11,6 +11,7 @@ const FeedbackForm = (props) => {
     props.onSave(data, props?.feedback?.id)
   }
 
+
   return (
     <div className="rw-form-wrapper">
       <Form onSubmit={onSubmit} error={props.error}>
@@ -43,8 +44,8 @@ const FeedbackForm = (props) => {
           </p>
           <div className="py-3">
             <TextField
-              id="editFeedback"
-              name="editFeedbackArea"
+              id="text"
+              name="text"
               rows="3"
               className="rw-input max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
               defaultValue={props.feedback?.text}
