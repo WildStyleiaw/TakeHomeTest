@@ -3,14 +3,13 @@ import {
   FormError,
   FieldError,
   Submit,
-  TextField,
+  TextAreaField,
 } from '@redwoodjs/forms'
 
 const FeedbackForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.feedback?.id)
   }
-
 
   return (
     <div className="rw-form-wrapper">
@@ -26,7 +25,7 @@ const FeedbackForm = (props) => {
             htmlFor="user"
             className="block text-sm font-medium text-gray-700 py-5 px-2"
           >
-            Change User:
+            User Name:
           </label>
           <select
             id="user"
@@ -43,7 +42,7 @@ const FeedbackForm = (props) => {
             Please provide feedback on ways we can improve.
           </p>
           <div className="py-3">
-            <TextField
+            <TextAreaField
               id="text"
               name="text"
               rows="3"

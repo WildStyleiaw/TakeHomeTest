@@ -35,3 +35,8 @@ export const userList = () => {
   console.log('fired!')
   return db.user.findMany()
 }
+export const userFeedbackCount = ({ id }) => {
+  db.user.feedback.count({
+    where: { id },
+  })
+}
