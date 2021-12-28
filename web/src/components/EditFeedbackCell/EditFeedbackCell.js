@@ -50,11 +50,13 @@ export const Success = ({ feedback }) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <div className="px-2 py-2">
-          <h3 className="text-xl leading-6 font-medium text-gray-900">
+          <div className="text-center text-xl py-5 bg-grey-800 border ">
             Edit Feedback
+          </div>
+          <h3 className="text-xl leading-6 font-medium text-gray-900 py-3 ">
+            Feedback ID: {feedback.id}
           </h3>
         </div>
-        <div className="px-2 py-5">Feedback ID: {feedback.id}</div>
       </header>
       <div className="rw-segment-main">
         <FeedbackForm

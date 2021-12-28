@@ -42,6 +42,13 @@ const UserItem = ({ user }) => {
               <div className="">Joined on: {user.createdAt}</div>
             </p>
           </div>
+          <button
+            type="button"
+            className="text-sm font-medium text-gray-600 hover:text-green-500"
+          >
+            {' '}
+            <Link to={routes.singleUser({ id: user.id })}>User Details</Link>
+          </button>
 
           <img
             className="h-9 w-9 rounded-full pr-1000"
@@ -108,7 +115,7 @@ export const Empty = () => {
       <div className="px-10 py-10">
         <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
           <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-800 border border-transparent rounded-md hover:bg-green-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
-            <Link to={routes.newFeedback()}>Add User</Link>
+            <Link to={routes.newUser()}>Add User</Link>
           </button>
         </span>
       </div>
@@ -134,13 +141,16 @@ const Success = ({ userList }) => {
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
         <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-800 border border-transparent rounded-md hover:bg-green-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
-          <Link to={routes.newFeedback()}>Add insight</Link>
+          <Link to={routes.newUser()}>Add User</Link>
         </button>
       </span>
     </>
   )
   return (
     <ContainerLayout maxWidth="max-w-full" headerBtns={headerBtns}>
+      <div className="text-center text-xl py-5 bg-grey-800 border ">
+        Contacts
+      </div>
       <div className="grid">
         <div className="divide-y">
           {userList?.map((user) => (
@@ -156,7 +166,7 @@ export const Loading = () => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-800 border border-transparent rounded-md hover:bg-green-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md hover:bg-green-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={''}>Add User</Link>
         </button>
       </span>

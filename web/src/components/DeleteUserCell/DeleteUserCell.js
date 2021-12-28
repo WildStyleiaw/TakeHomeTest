@@ -3,17 +3,19 @@ import { toast } from '@redwoodjs/web/toast'
 import { Link, routes, navigate } from '@redwoodjs/router'
 
 export const QUERY = gql`
-  query FindFeedbackById($id: String!) {
-    feedback: feedback(id: $id) {
+  query FindUserById($id: String!) {
+    user: user(id: $id) {
       id
-      text
+      name
+      email
+      phone
       createdAt
     }
   }
 `
-const DELETE_FEEDBACK_MUTATION = gql`
-  mutation DeleteFeedbackMutation($id: String!) {
-    deleteFeedback(id: $id) {
+const DELETE_USER_MUTATION = gql`
+  mutation DeleteUserMutation($id: String!) {
+    deleteUser(id: $id) {
       id
     }
   }
@@ -27,11 +29,11 @@ const timeTag = (datetime) => {
   )
 }
 
-const Feedback = ({ feedback }) => {
-  const [deleteFeedback] = useMutation(DELETE_FEEDBACK_MUTATION, {
+const User = ({ user }) => {
+  const [deleteUser] = useMutation(DELETE_USER_MUTATION, {
     onCompleted: () => {
-      toast.success('Feedback deleted')
-      navigate(routes.feedbacks())
+      toast.success('User deleted')
+      navigate(routes.contacts())
     },
     onError: (error) => {
       toast.error(error.message)
@@ -41,10 +43,11 @@ const Feedback = ({ feedback }) => {
   const onDeleteClick = (id) => {
     if (
       confirm(
-        'Are you sure you want to permanently delete feedback item: ' + id + '?'
+        'Are you sure you want to permanently delete user id: ' + id + '?',
+        'This will also delete all related feedback items?'
       )
     ) {
-      deleteFeedback({ variables: { id } })
+      deleteUser({ variables: { id } })
     }
   }
 
@@ -52,7 +55,7 @@ const Feedback = ({ feedback }) => {
     <>
       <div className="space-y-3">
         <div className="text-center text-xl py-5 bg-grey-800 border ">
-          Delete Feedback
+          Delete User
         </div>
         <div className="py-1 px-1">
           <div className="rw-segment">
@@ -67,23 +70,31 @@ const Feedback = ({ feedback }) => {
                           <h3 className="text-xl font-medium">
                             {' '}
                             <div className="py-5">
-                              You are about to delete a feedback post created by
-                              User: {feedback.userId}
+                              You are about to delete a User name: {user.name}
                             </div>
                           </h3>
                           <div className="flex items-center justify-between">
                             <h3 className="text-xl font-medium">
                               {' '}
-                              <div className="py-5">
-                                The Feedback ID is: {feedback.id}
-                              </div>
+                              <div className="py-5">User ID is: {user.id}</div>
                             </h3>
                           </div>
+                          <div className="py-5">Name: {user.name}</div>
+                          <div className="py-5">Email: {user.email}</div>
+                          <div className="py-5">Phone: {user.phone}</div>
+
                           <p className="text-xl text-gray-500">
                             <div className="py-5">
-                              It was created on: {timeTag(feedback.createdAt)}
+                              User was created on: {timeTag(user.createdAt)}
                             </div>
                           </p>
+                          <h3 className="text-xl font-medium">
+                            {' '}
+                            <div className="py-5">
+                              **Please note that deleting a user will delete all
+                              associated Feedback Items**
+                            </div>
+                          </h3>
                         </div>
                       </div>
                     </li>
@@ -98,7 +109,7 @@ const Feedback = ({ feedback }) => {
               to return to{' '}
               <Link
                 className="hover:bg-indigo-700 rounded-md"
-                to={routes.singleFeedback({ id: feedback.id })}
+                to={routes.singleFeedback({ id: user.id })}
               >
                 Post Details
               </Link>
@@ -110,13 +121,11 @@ const Feedback = ({ feedback }) => {
                   type="button"
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <Link to={routes.singleFeedback({ id: feedback.id })}>
-                    Back
-                  </Link>
+                  <Link to={routes.singleFeedback({ id: user.id })}>Back</Link>
                 </button>
                 <button
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  onClick={() => onDeleteClick(feedback.id)}
+                  onClick={() => onDeleteClick(user.id)}
                 >
                   Delete
                 </button>
@@ -130,13 +139,11 @@ const Feedback = ({ feedback }) => {
 }
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => (
-  <div>Feedback not found .. Empty State in SingleFeedBackCell</div>
-)
+export const Empty = () => <div>User not found .. </div>
 
 export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
-export const Success = ({ feedback }) => {
-  return <Feedback feedback={feedback} />
+export const Success = ({ user }) => {
+  return <User user={user} />
 }

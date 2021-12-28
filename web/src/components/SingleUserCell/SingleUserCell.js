@@ -1,10 +1,12 @@
 import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
-  query FindFeedbackById($id: String!) {
-    feedback: feedback(id: $id) {
+  query FindUserById($id: String!) {
+    user: user(id: $id) {
       id
-      text
+      name
+      email
+      phone
       createdAt
     }
   }
@@ -18,12 +20,12 @@ const timeTag = (datetime) => {
   )
 }
 
-const Feedback = ({ feedback }) => {
+const User = ({ user }) => {
   return (
     <>
       <div className="space-y-3">
         <div className="text-center text-xl py-5 bg-grey-800 border ">
-          Feedback Details
+          User Details
         </div>
         <div className="py-5 px-5">
           <div className="rw-segment">
@@ -37,19 +39,15 @@ const Feedback = ({ feedback }) => {
                         <div className="flex-1 space-y-1">
                           <h3 className="text-xl font-medium">
                             {' '}
-                            <div className="">User: {feedback.userId}</div>
+                            <div className="">Name: {user.name}</div>
                           </h3>
+
                           <div className="flex items-center justify-between">
                             <h3 className="text-xl font-medium">
                               {' '}
-                              <div className="">Feedback ID: {feedback.id}</div>
+                              <div className="">ID: {user.id}</div>
                             </h3>
                           </div>
-                          <p className="text-xl text-gray-500">
-                            <div className="">
-                              Created At: {timeTag(feedback.createdAt)}
-                            </div>
-                          </p>
                         </div>
                       </div>
                     </li>
@@ -58,7 +56,12 @@ const Feedback = ({ feedback }) => {
               </div>
             </h2>
 
-            <div className="text-xl"> {feedback.text}</div>
+            <div className="text-xl"> Email: {user.email}</div>
+            <div className="text-xl"> Phone: {user.phone}</div>
+
+            <p className="text-xl py-5 text-gray-500">
+              <div className="">Created At: {timeTag(user.createdAt)}</div>
+            </p>
             <nav className="rw-button-group">
               <div className="pt-5">
                 <div className="flex justify-end"></div>
@@ -66,20 +69,16 @@ const Feedback = ({ feedback }) => {
                   type="button"
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-300 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <Link to={routes.feedback()}>Back</Link>
+                  <Link to={routes.contacts()}>Back</Link>
                 </button>
                 <button
                   type="button"
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <Link to={routes.editFeedback({ id: feedback.id })}>
-                    Edit
-                  </Link>
+                  <Link to={routes.editUser({ id: user.id })}>Edit</Link>
                 </button>
                 <button className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <Link to={routes.deleteFeedback({ id: feedback.id })}>
-                    Delete
-                  </Link>
+                  <Link to={routes.deleteUser({ id: user.id })}>Delete</Link>
                 </button>
               </div>
             </nav>
@@ -91,11 +90,11 @@ const Feedback = ({ feedback }) => {
 }
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Feedback not found ... </div>
+export const Empty = () => <div>User not found ... </div>
 
 export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
-export const Success = ({ feedback }) => {
-  return <Feedback feedback={feedback} />
+export const Success = ({ user }) => {
+  return <User user={user} />
 }

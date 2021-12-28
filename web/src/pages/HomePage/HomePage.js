@@ -38,8 +38,7 @@ const HomePage = () => {
               </Link>
             </h3>
             <p className="mt-2 text-sm text-gray-500">
-              Doloribus dolores nostrum quia qui natus officia quod et dolorem.
-              Sit repellendus qui ut at blanditiis et quo et molestiae.
+              View, Create, or Edit your Feedback items
             </p>
           </div>
           <span
@@ -85,8 +84,7 @@ const HomePage = () => {
               </Link>
             </h3>
             <p className="mt-2 text-sm text-gray-500">
-              Doloribus dolores nostrum quia qui natus officia quod et dolorem.
-              Sit repellendus qui ut at blanditiis et quo et molestiae.
+              Quick submit a new Feedback item
             </p>
           </div>
           <span
@@ -128,12 +126,11 @@ const HomePage = () => {
             <h3 className="text-lg font-medium">
               <Link to={routes.contacts()} className="focus:outline-none">
                 <span className="absolute inset-0" aria-hidden="true"></span>
-                View Contacts
+                View Users
               </Link>
             </h3>
             <p className="mt-2 text-sm text-gray-500">
-              Doloribus dolores nostrum quia qui natus officia quod et dolorem.
-              Sit repellendus qui ut at blanditiis et quo et molestiae.
+              View a list of existing Users
             </p>
           </div>
           <span
@@ -173,14 +170,13 @@ const HomePage = () => {
           </div>
           <div className="mt-8">
             <h3 className="text-lg font-medium">
-              <a href="#" className="focus:outline-none">
+              <Link to={routes.newUser()} className="focus:outline-none">
                 <span className="absolute inset-0" aria-hidden="true"></span>
-                Payroll
-              </a>
+                Add a new User
+              </Link>
             </h3>
             <p className="mt-2 text-sm text-gray-500">
-              Doloribus dolores nostrum quia qui natus officia quod et dolorem.
-              Sit repellendus qui ut at blanditiis et quo et molestiae.
+              Users can submit their feedback to make your product better
             </p>
           </div>
           <span
@@ -294,6 +290,7 @@ const HomePage = () => {
           </span>
         </div>
       </div>
+      <p className="text-center py-10 text-l">Have a wonderful day!</p>
     </CoreLayout>
   )
 }

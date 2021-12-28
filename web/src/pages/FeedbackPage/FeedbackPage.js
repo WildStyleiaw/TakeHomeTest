@@ -141,6 +141,11 @@ const Success = ({ feedbacks }) => {
   )
   return (
     <ContainerLayout maxWidth="max-w-full" headerBtns={headerBtns}>
+      <div className="text-center text-xl py-5 bg-grey-800 border ">
+        User Feedback
+      </div>
+
+      <div className="py-2"></div>
       <div className="grid">
         <div className="divide-y">
           {feedbacks?.map((fb) => (

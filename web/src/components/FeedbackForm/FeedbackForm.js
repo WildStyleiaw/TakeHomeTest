@@ -20,17 +20,17 @@ const FeedbackForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-        <div className="px-1">
+        <div className="px-1 ">
           <label
             htmlFor="user"
-            className="block text-sm font-medium text-gray-700 py-5 px-2"
+            className="block text-xl font-medium text-gray-700 px-2 py-1 pb-2"
           >
-            User Name:
+            User:
           </label>
           <select
             id="user"
             name="user"
-            className="mt-1 block w-1/3 px-10 pl-3 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
+            className="mt-1 block w-1/3 px-10 pl-2 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
           >
             <option>User1</option>
             <option>User2</option>
@@ -46,7 +46,7 @@ const FeedbackForm = (props) => {
               id="text"
               name="text"
               rows="3"
-              className="rw-input max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+              className="rw-input max-w-xl shadow-sm px-1  block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
               defaultValue={props.feedback?.text}
               validation={{ required: true }}
             />
@@ -55,7 +55,7 @@ const FeedbackForm = (props) => {
 
         <FieldError name="text" className="rw-field-error" />
 
-        <div className="rw-button-group">
+        <div className="rw-button-group pl-3">
           <Submit
             disabled={props.loading}
             className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-700 border border-transparent rounded-md hover:bg-green-500 focus:outline-none focus:shadow-outline-green focus:border-purple-700 active:bg-indigo-700"

@@ -35,8 +35,36 @@ export const userList = () => {
   console.log('fired!')
   return db.user.findMany()
 }
+export const user = ({ id }) => {
+  return db.user.findUnique({
+    where: { id },
+  })
+}
+
+export const createUser = ({ input }) => {
+  return db.user.create({
+    data: {
+      text: input.text,
+      userId: input.id,
+    },
+  })
+}
+
+export const updateUser = ({ id, input }) => {
+  return db.user.update({
+    data: input,
+    where: { id },
+  })
+}
+
+export const deleteUser = ({ id }) => {
+  return db.user.delete({
+    where: { id },
+  })
+}
+
 export const userFeedbackCount = ({ id }) => {
-  db.user.feedback.count({
+  db.user.feedbacks.count({
     where: { id },
   })
 }
