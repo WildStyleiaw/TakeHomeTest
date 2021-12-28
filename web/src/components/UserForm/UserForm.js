@@ -1,4 +1,10 @@
-import { Form, FormError, FieldError, Submit, TextArea } from '@redwoodjs/forms'
+import {
+  Form,
+  FormError,
+  FieldError,
+  Submit,
+  TextAreaField,
+} from '@redwoodjs/forms'
 
 const UserForm = (props) => {
   const onSubmit = (data) => {
@@ -21,12 +27,12 @@ const UserForm = (props) => {
           >
             Name:
           </label>
-          <TextArea
+          <TextAreaField
             id="name"
             name="name"
-            rows="3"
+            rows="1"
             className="rw-input max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
-            defaultValue={props.user?.text}
+            defaultValue={props.user?.name}
             validation={{ required: true }}
           />
         </div>
@@ -37,12 +43,12 @@ const UserForm = (props) => {
           >
             Email:
           </label>
-          <TextArea
+          <TextAreaField
             id="email"
             name="email"
-            rows="3"
+            rows="1"
             className="rw-input max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
-            defaultValue={props.user?.text}
+            defaultValue={props.user?.email}
             validation={{ required: true }}
           />
         </div>
@@ -53,12 +59,12 @@ const UserForm = (props) => {
           >
             Phone:
           </label>
-          <TextArea
+          <TextAreaField
             id="phone"
             name="phone"
-            rows="3"
+            rows="1"
             className="rw-input max-w-xl shadow-sm px-1 py-1 block w-1/3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
-            defaultValue={props.user?.text}
+            defaultValue={props.user?.phone}
             validation={{ required: false }}
           />
         </div>

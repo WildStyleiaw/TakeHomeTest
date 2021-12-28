@@ -37,7 +37,9 @@ export const schema = gql`
     text: String!
   }
   input UpdateUserInput {
-    text: String
+    name: String
+    email: String
+    phone: String
   }
 
   type Mutation {
