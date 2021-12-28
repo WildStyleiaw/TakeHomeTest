@@ -10,7 +10,7 @@ const HomePage = () => {
       </h1>{' '}
       <div className="text-center py-5 text-l">What would you like to do?</div>
       <div className="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
-        <div className="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-teal-50 text-teal-700 ring-4 ring-white">
               <svg
@@ -43,7 +43,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg
@@ -57,7 +57,7 @@ const HomePage = () => {
           </span>
         </div>
 
-        <div className="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
               <svg
@@ -90,7 +90,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg
@@ -104,7 +104,7 @@ const HomePage = () => {
           </span>
         </div>
 
-        <div className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-sky-50 text-sky-700 ring-4 ring-white">
               <svg
@@ -137,7 +137,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg
@@ -151,7 +151,7 @@ const HomePage = () => {
           </span>
         </div>
 
-        <div className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
               <svg
@@ -184,7 +184,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg
@@ -198,7 +198,7 @@ const HomePage = () => {
           </span>
         </div>
 
-        <div className="sm:rounded-bl-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="sm:rounded-bl-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-rose-50 text-rose-700 ring-4 ring-white">
               <svg
@@ -231,7 +231,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg
@@ -245,7 +245,7 @@ const HomePage = () => {
           </span>
         </div>
 
-        <div className="rounded-bl-lg rounded-br-lg sm:rounded-bl-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+        <div className="rounded-bl-lg rounded-br-lg sm:rounded-bl-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
           <div>
             <span className="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
               <svg
@@ -280,7 +280,7 @@ const HomePage = () => {
             </p>
           </div>
           <span
-            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+            className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-green-400"
             aria-hidden="true"
           >
             <svg

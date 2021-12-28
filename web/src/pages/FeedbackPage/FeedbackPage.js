@@ -22,46 +22,79 @@ const timeTag = (datetime) => {
 
 const FeedbackItem = ({ fb }) => {
   return (
-    <div className="space-y-3">
-      <div>
-        <ul className="divide-y divide-gray-200">
-          <li className="py-4">
-            <div className="flex space-x-3">
-              <div className="px-1 py-1">
-                <img
-                  className="h-9 w-9 rounded-full"
-                  src="https://d33wubrfki0l68.cloudfront.net/492ed629970792d32ac857da0166a7d2308bad99/428b6/images/diecut.svg"
-                  alt="Redwood Logo"
-                />
-              </div>
-              <div className="flex-1 space-y-1">
-                <h3 className="text-sm font-medium">
-                  {' '}
-                  <div className="">User: {fb.userId}</div>
+    <>
+      <ul className="">
+        <li className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+          <div className="w-full flex items-center justify-between p-6 space-x-6">
+            <div className="flex-1 truncate">
+              <div className="flex items-center space-x-3">
+                <h3 className="text-gray-900 text-sm font-medium truncate">
+                  FeedbackID: {fb.id}
                 </h3>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium">
-                    {' '}
-                    <div className="">ID: {fb.id}</div>
-                  </h3>
-                </div>
-                <p className="text-sm text-gray-500">
-                  <div className="">Create At: {timeTag(fb.createdAt)}</div>
-                </p>
+                <span className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+                  UserID: {fb.userId}
+                </span>
+              </div>
+              <div className="py-1">
+                <div className="py-1"> {fb.text}</div>
+              </div>
+              <p className="mt-1 text-gray-500 text-sm truncate">
+                <div className="">Create At: {timeTag(fb.createdAt)}</div>
+              </p>
+            </div>
+
+            <img
+              className="h-9 w-9 rounded-full pr-1000"
+              src="https://d33wubrfki0l68.cloudfront.net/492ed629970792d32ac857da0166a7d2308bad99/428b6/images/diecut.svg"
+              alt="Redwood Logo"
+            />
+          </div>
+          <div>
+            <div className="-mt-px flex divide-x divide-gray-200">
+              <div className="w-0 flex-1 flex">
+                <Link
+                  to={routes.singleFeedback({ id: fb.id })}
+                  className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-green-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="ml-3">View Details</span>
+                </Link>
+              </div>
+              <div className="-ml-px w-0 flex-1 flex">
+                <Link
+                  to={routes.editFeedback({ id: fb.id })}
+                  className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-green-500"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                  <span className="ml-3">Quick Edit</span>
+                </Link>
               </div>
             </div>
-          </li>
-        </ul>
-      </div>
-      <div className="px-3 py-1">
-        <div className=""> {fb.text}</div>
-      </div>
-      <div className="px-3 py-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
-          <Link to={routes.singleFeedback({ id: fb.id })}>View Details</Link>
-        </button>
-      </div>
-    </div>
+          </div>
+        </li>
+      </ul>
+      <div className="py-2"></div>
+    </>
   )
 }
 
@@ -100,7 +133,7 @@ const Success = ({ feedbacks }) => {
   const headerBtns = (
     <>
       <span className="rounded-md shadow-sm order-0 sm:order-1 sm:ml-3">
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-800 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
+        <button className="inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-green-800 border border-transparent rounded-md hover:bg-green-700 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-indigo-700">
           <Link to={routes.newFeedback()}>Add insight</Link>
         </button>
       </span>
