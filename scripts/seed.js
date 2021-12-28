@@ -30,6 +30,7 @@ export default async () => {
       data: {
         name: 'UserVitals',
         email: 'uv@uv.com',
+        phone: '1-123-1234',
         createdAt: new Date(),
       },
     })

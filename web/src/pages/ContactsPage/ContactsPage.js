@@ -13,14 +13,6 @@ export const QUERY = gql`
   }
 `
 
-const timeTag = (datetime) => {
-  return (
-    <time dateTime={datetime} title={datetime}>
-      {new Date(datetime).toUTCString()}
-    </time>
-  )
-}
-
 const UserItem = ({ user }) => {
   return (
     <ul className="">
@@ -38,9 +30,6 @@ const UserItem = ({ user }) => {
             <div className="py-2">
               <div className="py-1"> Active Feedback Items: {user.email}</div>
             </div>
-            <p className="mt-1 text-gray-500 text-sm truncate">
-              <div className="">Joined on: {user.createdAt}</div>
-            </p>
           </div>
           <button
             type="button"

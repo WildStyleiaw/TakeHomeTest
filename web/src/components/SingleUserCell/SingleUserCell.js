@@ -60,7 +60,7 @@ const User = ({ user }) => {
             <div className="text-xl"> Phone: {user.phone}</div>
 
             <p className="text-xl py-5 text-gray-500">
-              <div className="">Created At: {timeTag(user.createdAt)}</div>
+              <div className="">Joined on: {timeTag(user.createdAt)}</div>
             </p>
             <nav className="rw-button-group">
               <div className="pt-5">
