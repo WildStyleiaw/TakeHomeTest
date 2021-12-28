@@ -4,7 +4,7 @@ const EditFeedbackPage = ({ id }) => {
   return (
     <>
       <CoreLayout>
-        return <EditFeedbackCell id={id} />
+        <EditFeedbackCell id={id} />
       </CoreLayout>
     </>
   )
