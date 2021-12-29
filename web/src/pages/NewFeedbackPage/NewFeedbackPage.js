@@ -49,7 +49,12 @@ const NewFeedback = ({ userList }) => {
           </h3>
         </header>
         <div className="rw-segment-main">
-          <FeedbackForm onSave={onSave} loading={loading} error={error} />
+          <FeedbackForm
+            onSave={onSave}
+            loading={loading}
+            error={error}
+            userList={userList}
+          />
         </div>
       </div>
     </CoreLayout>

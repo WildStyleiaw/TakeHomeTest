@@ -8,8 +8,15 @@ import {
 
 const FeedbackForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data, props?.feedback?.id)
+    // const restructure = { ...data, userId: document.getElementById('user') }
+    var select = document.getElementById('user')
+    var value = select.options[select.selectedIndex].value
+    console.log(value)
+    const restructure = { ...data, userId: value }
+
+    props.onSave(restructure, props?.feedback?.id)
   }
+  const { userList, userId } = props
 
   return (
     <div className="rw-form-wrapper">
@@ -32,9 +39,15 @@ const FeedbackForm = (props) => {
             name="user"
             className="mt-1 block w-1/3 px-10 pl-2 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
           >
-            <option>User1</option>
-            <option>User2</option>
-            <option>User3</option>
+            {userList.map((user) => (
+              <option
+                key={user.id}
+                value={user.id}
+                selected={user.id == userId}
+              >
+                {user.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="px-1 py-3">

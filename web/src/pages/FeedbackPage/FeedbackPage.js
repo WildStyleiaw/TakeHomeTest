@@ -9,6 +9,10 @@ export const QUERY = gql`
       id
       text
       createdAt
+      userId
+      createdBy {
+        name
+      }
     }
   }
 `
@@ -19,8 +23,8 @@ const timeTag = (datetime) => {
     </time>
   )
 }
-
 const FeedbackItem = ({ fb }) => {
+  console.log(fb)
   return (
     <>
       <ul className="">
@@ -32,7 +36,7 @@ const FeedbackItem = ({ fb }) => {
                   FeedbackID: {fb.id}
                 </h3>
                 <span className="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                  UserID: {fb.userId}
+                  User: {fb?.createdBy?.name}
                 </span>
               </div>
               <div className="py-1">

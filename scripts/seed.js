@@ -21,58 +21,12 @@ const CLOUDOPS_DATA = {
   ],
 }
 
-const USER_DATA = {
-  data: [
-    {
-      name: 'Sammy Sandwitch',
-      email: 'RyeTillIDie@uv.com',
-      phone: '1-511-958-3129',
-      createdAt: new Date(),
-    },
-    {
-      name: 'Bob Burgers',
-      email: 'AchinforBacon@uv.com',
-      phone: '1-123-123-1523',
-      createdAt: new Date(),
-    },
-    {
-      name: 'Larry Lasagne',
-      email: 'lasagne@uv.com',
-      phone: '9-454-536-2343',
-      createdAt: new Date(),
-    },
-    {
-      name: 'Paul Poultry',
-      email: 'chickenlicken@uv.com',
-      phone: '6-123-215-1254',
-      createdAt: new Date(),
-    },
-  ],
-}
 export default async () => {
-  let users
-
   try {
-    await db.user.deleteMany({})
-
-    users = await USER_DATA.data.map(async (user) => {
-      await db.user.create({
-        data: {
-          name: user.name,
-          email: user.email,
-          phone: user.phone,
-          createdAt: new Date(),
-        },
-      })
-    })
-  } catch (error) {
-    console.warn('Please define your seed data.')
-    console.error(error)
-  }
-  try {
-    await db.feedback.deleteMany({})
+    await db.feedback.deleteMany()
     // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
     // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
+    const users = await db.user.findMany()
     console.log(users)
     Promise.all(
       //

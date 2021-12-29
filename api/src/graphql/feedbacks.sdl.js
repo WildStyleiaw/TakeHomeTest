@@ -9,7 +9,8 @@ export const schema = gql`
     sourceType: InsightSource
     metadata: JSON
     submitter: User
-    contact: User
+    createdBy: User
+    userId: String
   }
 
   type User {
@@ -18,6 +19,7 @@ export const schema = gql`
     email: String
     phone: String
     createdAt: DateTime!
+    insights: [Feedback]
   }
   type Query {
     feedbacks: [Feedback!]! @requireAuth
@@ -31,6 +33,7 @@ export const schema = gql`
   }
   input UpdateFeedbackInput {
     text: String
+    userId: String
   }
 
   input CreateUserInput {

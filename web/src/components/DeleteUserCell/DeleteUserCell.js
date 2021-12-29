@@ -121,7 +121,7 @@ const User = ({ user }) => {
                   type="button"
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  <Link to={routes.singleFeedback({ id: user.id })}>Back</Link>
+                  <Link to={routes.singleUser({ id: user.id })}>Back</Link>
                 </button>
                 <button
                   className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

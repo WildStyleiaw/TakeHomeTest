@@ -9,6 +9,15 @@ export const QUERY = gql`
       id
       text
       createdAt
+      userId
+    }
+    userList {
+      id
+      email
+      name
+      insights {
+        id
+      }
     }
   }
 `
@@ -29,7 +38,7 @@ export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ feedback }) => {
+export const Success = ({ feedback, userList }) => {
   const [updateFeedback, { loading, error }] = useMutation(
     UPDATE_FEEDBACK_MUTATION,
     {
@@ -42,6 +51,7 @@ export const Success = ({ feedback }) => {
       },
     }
   )
+  console.log(userList)
   const onSave = (input, id) => {
     updateFeedback({ variables: { id, input } })
   }
@@ -64,6 +74,8 @@ export const Success = ({ feedback }) => {
           onSave={onSave}
           error={error}
           loading={loading}
+          userList={userList}
+          userId={feedback.userId}
         />
       </div>
     </div>
