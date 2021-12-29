@@ -9,6 +9,7 @@ export const feedbacks = () => {
 export const feedback = ({ id }) => {
   return db.feedback.findUnique({
     where: { id },
+    include: { createdBy: true },
   })
 }
 

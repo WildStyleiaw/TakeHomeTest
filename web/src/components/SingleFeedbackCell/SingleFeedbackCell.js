@@ -6,6 +6,10 @@ export const QUERY = gql`
       id
       text
       createdAt
+      userId
+      createdBy {
+        name
+      }
     }
   }
 `
@@ -37,7 +41,9 @@ const Feedback = ({ feedback }) => {
                         <div className="flex-1 space-y-1">
                           <h3 className="text-xl font-medium">
                             {' '}
-                            <div className="">User: {feedback.userId}</div>
+                            <div className="">
+                              User: {feedback.createdBy.name}
+                            </div>
                           </h3>
                           <div className="flex items-center justify-between">
                             <h3 className="text-xl font-medium">
