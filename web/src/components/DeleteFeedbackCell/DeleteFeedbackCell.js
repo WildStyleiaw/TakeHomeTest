@@ -8,6 +8,9 @@ export const QUERY = gql`
       id
       text
       createdAt
+      createdBy {
+        name
+      }
     }
   }
 `
@@ -67,10 +70,11 @@ const Feedback = ({ feedback }) => {
                           <h3 className="text-xl font-medium">
                             {' '}
                             <div className="py-5">
-                              You are about to delete a feedback post created by
-                              User: {feedback.userId}
+                              You are about to delete a feedback post: {''}
                             </div>
+                            <div>Created by: {feedback.createdBy.name}</div>
                           </h3>
+
                           <div className="flex items-center justify-between">
                             <h3 className="text-xl font-medium">
                               {' '}

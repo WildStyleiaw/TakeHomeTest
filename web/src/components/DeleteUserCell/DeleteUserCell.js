@@ -70,7 +70,7 @@ const User = ({ user }) => {
                           <h3 className="text-xl font-medium">
                             {' '}
                             <div className="py-5">
-                              You are about to delete a User name: {user.name}
+                              You are about to delete a User:
                             </div>
                           </h3>
                           <div className="flex items-center justify-between">
