@@ -14,11 +14,9 @@ export const feedback = ({ id }) => {
 }
 
 export const createFeedback = ({ input }) => {
-  return db.feedback.createMany({
-    data: {
-      text: input.text,
-      userId: input.id,
-    },
+  console.log(input)
+  return db.feedback.create({
+    data: input,
   })
 }
 
