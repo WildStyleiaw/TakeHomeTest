@@ -8,10 +8,9 @@ import {
 
 const FeedbackForm = (props) => {
   const onSubmit = (data) => {
-    // const restructure = { ...data, userId: document.getElementById('user') }
     var select = document.getElementById('user')
     var value = select.options[select.selectedIndex].value
-    console.log(value)
+
     const restructure = { ...data, userId: value }
 
     props.onSave(restructure, props?.feedback?.id)
@@ -39,7 +38,7 @@ const FeedbackForm = (props) => {
             name="user"
             className="mt-1 block w-1/3 px-10 pl-2 pr-10 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-l rounded-md"
           >
-            {userList.map((user) => (
+            {userList?.map((user) => (
               <option
                 key={user.id}
                 value={user.id}

@@ -8,7 +8,6 @@ export const QUERY = gql`
   query UserListQuery {
     userList {
       id
-      email
       name
     }
   }
@@ -18,6 +17,8 @@ const CREATE_FEEDBACK_MUTATION = gql`
   mutation CreateFeedbackMutation($input: CreateFeedbackInput!) {
     createFeedback(input: $input) {
       id
+      text
+      createdAt
     }
   }
 `
@@ -28,7 +29,7 @@ const NewFeedback = ({ userList }) => {
     {
       onCompleted: () => {
         toast.success('Feedback created')
-        navigate(routes.feedbacks())
+        navigate(routes.feedback())
       },
       onError: (error) => {
         toast.error(error.message)

@@ -46,7 +46,8 @@ export const user = ({ id }) => {
 export const createUser = ({ input }) => {
   return db.user.create({
     data: {
-      text: input.text,
+      name: input.name,
+      email: input.email,
       userId: input.id,
     },
   })

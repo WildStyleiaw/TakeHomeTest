@@ -8,6 +8,9 @@ const CREATE_USER_MUTATION = gql`
   mutation CreateUserMutation($input: CreateUserInput!) {
     createUser(input: $input) {
       id
+      name
+      email
+      phone
     }
   }
 `

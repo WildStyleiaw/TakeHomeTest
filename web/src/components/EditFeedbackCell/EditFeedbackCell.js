@@ -51,7 +51,7 @@ export const Success = ({ feedback, userList }) => {
       },
     }
   )
-  console.log(userList)
+
   const onSave = (input, id) => {
     updateFeedback({ variables: { id, input } })
   }

@@ -30,6 +30,7 @@ export const schema = gql`
 
   input CreateFeedbackInput {
     text: String!
+    userId: String
   }
   input UpdateFeedbackInput {
     text: String
@@ -37,7 +38,9 @@ export const schema = gql`
   }
 
   input CreateUserInput {
-    text: String!
+    name: String
+    email: String
+    phone: String
   }
   input UpdateUserInput {
     name: String
